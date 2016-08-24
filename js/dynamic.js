@@ -233,7 +233,7 @@ $(function() {
 			}).stop(true,true).fadeIn(500);
 		}
 	});
-	$('.fade, .modal .close').on('click', function(e) {
+	$('.fade, .modal .close, .modal .continue').on('click', function(e) {
 		e.preventDefault();
 		$('.fade, .modal').stop(true,true).fadeOut(500);
 	});

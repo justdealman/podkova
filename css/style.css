@@ -751,6 +751,7 @@ nav.fixed > ul > li > a {
 	display:none;
 }
 .slider img {
+	display:none;
 	margin:0 0 -4px;
 }
 .slider .text {

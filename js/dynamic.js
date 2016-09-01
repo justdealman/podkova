@@ -520,4 +520,37 @@ $(function() {
 			});
 		});
 	});
+	if ( $('.about-b').length > 0 ) {
+		$(window).bind('scroll', function() {
+			var t = $('.about-b .bigtire');
+			var bgDiff = t.find('.bg').attr('height')-t.outerHeight();
+			var bigDiff = t.find('.big').attr('height');
+			var progress;
+			if ( $(document).scrollTop() < t.offset().top-$(window).height() ) {
+				progress = 0;
+			} else if ( $(document).scrollTop() >= t.offset().top-$(window).height() && $(document).scrollTop() <= t.offset().top+t.height()-71-$(window).height()/2 ) {
+				progress = ($(document).scrollTop()-t.offset().top+$(window).height())/(t.height()-71+$(window).height()/2);
+			} else {
+				progress = 1;
+			}
+			t.find('.bg').css({
+				'top': -progress*bgDiff+'px' 
+			});
+			t.find('.big').css({
+				'margin-top': -progress*bigDiff+'px' 
+			});
+		});
+		$(window).trigger('scroll');
+		$('.about-b .benefits ul li h5 span').each(function() {
+			if ( $(this).outerHeight() < 36 ) {
+				$(this).css({
+					'padding-top': (36-$(this).outerHeight())/2+'px'
+				});
+			}
+		});
+	}
+	$('.about-b .goals .core .nav li a').on('click', function(e) {
+		e.preventDefault();
+		$(this).parent().addClass('active').siblings().removeClass('active');
+	});
 });

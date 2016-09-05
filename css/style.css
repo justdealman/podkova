@@ -1954,7 +1954,7 @@ footer {
 	color:#ffffff;
 	height:630px;
 	margin:-630px 0 0;
-	background:#000000 url('../img/footer-bg.jpg') no-repeat center center;
+	background:#000000 url('../img/footer-bg.jpg') no-repeat center bottom;
 }
 footer:before, footer:after {
 	content:'';
@@ -1966,10 +1966,10 @@ footer:before, footer:after {
 	background:rgba(255,255,255,0.35);
 }
 footer:before {
-	top:365px;
+	bottom:264px;
 }
 footer:after {
-	top:527px;
+	bottom:102px;
 }
 footer .nav {
 	position:absolute;
@@ -7947,4 +7947,38 @@ button.dark.arrowed:after {
 	vertical-align:top;
 	margin:-6px 34px -11px 0;
 	background:url('../img/logo-icon.png') no-repeat center center;
+}
+footer .contacts-b {
+	overflow:hidden;
+	position:absolute;
+	left:50%;
+	top:75px;
+	height:0;
+	padding:0;
+	margin-left:-480px;
+	background:#ffffff;
+}
+footer .contacts-b .address {
+	position:absolute;
+	left:0;
+	top:0;
+	width:960px;
+	height:271px;
+	margin-top:-135px;
+}
+footer .contacts-b .address .nav {
+	position:static;
+}
+footer .contacts-b .address .nav .core {
+	height:271px;
+}
+footer .contacts-b .address .nav .core ul li:first-child:before {
+	display:none;
+}
+footer .contacts-b .address .map {
+	height:271px;
+}
+footer .map-link a.active:before {
+	-webkit-transform:rotate(180deg);
+	transform:rotate(180deg);
 }

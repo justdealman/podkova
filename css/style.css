@@ -973,10 +973,15 @@ nav.fixed > ul > li > a {
 	margin:0 0 6px;
 }
 .sign-i p {
+	overflow:hidden;
+	height:46px;
 	font-size:18px;
 	line-height:23px;
 	font-weight:500;
 	margin:0 0 6px;
+}
+.sign-i p span {
+	display:none;
 }
 .sign-i button {
 	margin:20px 0 20px 0;

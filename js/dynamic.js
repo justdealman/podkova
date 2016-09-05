@@ -591,4 +591,37 @@ $(function() {
 			$(this).removeClass('active');
 		}
 	});
+	function entryService() {
+		executed = true;
+		var i = -1;
+		var changeSpeed = 2000;
+		var fadeSpeed = 300;
+		var t = $('.sign-i li');
+		t.each(function() {
+			$(this).find('p span').eq(0).show().addClass('active');
+		});
+		setInterval(function() {	
+			i = i+1;
+			if ( i >= t.size() ) {
+				i = 0;
+			}
+			var e = t.eq(i).find('p span.active').next('span');
+			if ( e.length == 0 ) {
+				e = t.eq(i).find('p span').eq(0);
+			}
+			e.siblings().stop().fadeOut(fadeSpeed).removeClass('active');
+			setTimeout(function() {
+				e.stop().fadeIn(fadeSpeed).addClass('active');
+			}, fadeSpeed);
+		}, changeSpeed);
+	}
+	if ( $('.sign-i').length > 0 ) {
+		var executed = false;
+		$(window).on('scroll', function() {
+			if ( $(document).scrollTop() > $('.sign-i p').offset().top-$(window).height() && executed == false ) {
+				entryService();
+			}
+		});
+		$(window).trigger('scroll');
+	}
 });

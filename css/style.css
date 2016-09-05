@@ -4739,7 +4739,8 @@ button.dark.arrowed:after {
 	font-size:24px;
 	line-height:28px;
 	padding:16px 20px 20px 67px;
-	margin:0;
+	margin:0 0 -1px;
+	border-bottom:1px solid #cccccc;
 }
 .contacts-b .address .nav h5:before {
 	content:url('../img/pin-icon.png');
@@ -4747,7 +4748,18 @@ button.dark.arrowed:after {
 	left:18px;
 	top:13px;
 }
+.contacts-b .address .nav .core {
+	position:relative;
+	overflow:hidden;
+	width:334px;
+	height:541px;
+}
+.contacts-b .address .nav .core .jspDrag:after {
+	left:11px;
+	width:6px;
+}
 .contacts-b .address .nav ul {
+	width:310px;
 	padding:0 0 1px;
 	margin:0;
 }

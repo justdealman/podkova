@@ -624,4 +624,9 @@ $(function() {
 		});
 		$(window).trigger('scroll');
 	}
+	$('.about-b .goals .core .nav li a').on('click', function(e) {
+		e.preventDefault();
+		$(this).parents('.nav').siblings('[data-tab="'+$(this).attr('href')+'"]').show().siblings('[data-tab]').hide();
+		$(this).parent().addClass('active').siblings().removeClass('active');
+	}).filter(':first').click();
 });

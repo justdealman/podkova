@@ -7905,6 +7905,7 @@ button.dark.arrowed:after {
 	border-bottom-color:transparent;
 }
 .about-b .goals .tab {
+	display:none;
 	color:#fff456;
 	padding:42px 100px 18px 90px;
 	background:rgba(0,0,0,0.22);

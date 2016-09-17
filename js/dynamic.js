@@ -58,13 +58,30 @@ $(function() {
 		});
 		$('.sign-i h4 span').each(function() {
 			var m = (46-$(this).outerHeight())/2;
-			if ( m < 0 ) {
+			/*if ( m < 0 ) {
 				m = 0;
-			}
+			}*/
 			$(this).css({
 				'margin-top': m+'px',
 				'opacity': '1'
 			});
+		});
+		$('.sign-i').each(function() {
+			var cols = 4;
+			var lines = Math.ceil($(this).find('ul li').size()/cols);
+			for ( var i=0; i<=lines; i++ ) {
+				var max = 0;
+				console.log(i);
+				for ( var j=1; j<=cols; j++ ) {
+					$(this).find('li:nth-of-type('+eval(i*cols+j)+')').each(function() {
+						var h = $(this).outerHeight(); 
+						max = h > max ? h : max;
+					});
+				}
+				for ( var j=1; j<=cols; j++ ) {
+					$(this).find('li:nth-of-type('+eval(i*cols+j)+')').outerHeight(max);
+				}
+			}
 		});
 		$('.leader-b .group ul li h4 span').each(function() {
 			$(this).css({

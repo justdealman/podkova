@@ -935,13 +935,17 @@ nav.fixed > ul > li > a {
 	background:#fff464;
 }
 .sign-i ul {
-	margin:0;
+	margin:0 0 -30px;
 }
 .sign-i li {
+	position:relative;
 	display:inline-block;
 	width:210px;
 	vertical-align:top;
-	margin:0 37px 10px 0;
+	padding-bottom:53px;
+	margin:0 37px 60px 0;
+	-webkit-box-shadow:border-box;
+	box-sizing:border-box;
 }
 .sign-i li:nth-child(4n) {
 	margin-right:-10px;
@@ -961,7 +965,6 @@ nav.fixed > ul > li > a {
 }
 .sign-i h4 span {
 	display:block;
-	margin:0 0 -23px;
 	opacity:0;
 }
 .sign-i h6 {
@@ -984,7 +987,10 @@ nav.fixed > ul > li > a {
 	display:none;
 }
 .sign-i button {
-	margin:20px 0 20px 0;
+	position:absolute;
+	left:0;
+	bottom:0;
+	margin:20px 0 0;
 }
 .selection-i {
 	overflow:hidden;

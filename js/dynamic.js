@@ -417,6 +417,7 @@ $(function() {
 		slideEasing: 'easeInOutQuad',
 		play: 10000,
 		pause: 2500,
+		autoHeight: true,
 		slidesLoaded: function() {
 			infoPosition();
 			var current = $('.custom-page-benefits .pagination li.current').index();
@@ -719,8 +720,8 @@ $(function() {
 					$(this).hide().siblings('.list').addClass('dropped');
 				});
 				$('.leader-n .recommend').detach().insertAfter('.leader-n .count');
-				$('.description-b').append('<h6 class="more"><span>Еще</span></h6>');
-				$('.description-b .more').on('click', function() {
+				$('.description-b.minify').append('<h6 class="more"><span>Еще</span></h6>');
+				$('.description-b.minify .more').on('click', function() {
 					$(this).hide().siblings('div').addClass('dropped');
 				});
 				$('.sign-i h4').on('click', function() {
@@ -759,13 +760,38 @@ $(function() {
 					}
 					$(this).toggleClass('active');
 				});
-
+				$('.lk-nav').prepend('<h6 class="drop"><span>'+$('.lk-nav').find('li.active').text()+'</span></h6>');
+				$('.lk-nav h6').on('click', function() {
+					$(this).siblings('ul').toggleClass('dropped');
+					$(this).toggleClass('active');
+				});
+				$('.order-table table th[data-mob], .order-table table th[data-mob]').each(function() {
+					var t = $(this).text();
+					$(this).parents('table').find('td').eq($(this).index()).each(function() {
+						$(this).prepend('<label>'+t+':</label> ');
+					});
+				});
+				$('.nav-inner .type, .nav-inner .sort').each(function() {
+					$(this).before('<h6 class="drop"><span>'+$(this).find('.active').text()+'</span></h6>');
+				});
+				$('.card-b .lc .group').detach().insertAfter('.card-b .tabs');
+				$('.card-b .core > div').detach().insertBefore('.card-b .core .desc');
+				$('.card-b .tabs .nav').before('<h6 class="drop"><span>'+$('.card-b .tabs .nav .active').text()+'</span></h6>');
+				$('.nav-inner .drop, .card-b .tabs h6.drop').on('click', function() {
+					$(this).next().toggleClass('dropped');
+					$(this).toggleClass('active');
+				});
+				$('.custom-catalog .list li h3').on('click', function() {
+					$(this).parent().toggleClass('active');
+				});
 			} else {
-				$('.menu-open, header .logo-m, .auto-type-nav-select, .multiply h6, .selection-i .more, .description-b .more, footer .go-up').remove();
+				$('.menu-open, header .logo-m, .auto-type-nav-select, .multiply h6, .selection-i .more, .description-b .more, footer .go-up, .lk-nav .drop, .order-table table td label, .order-table table label, .card-b .tabs h6.drop').remove();
 				$('.selection-i').detach().insertAfter('.sign-i');
 				$('.selection-i .title').detach().insertAfter('.selection-i .nav');
 				$('.selection-i .clear').detach().insertBefore('.selection-i .controls button');
 				$('.leader-n .recommend').detach().insertBefore('.leader-n .count');
+				$('.card-b .lc .group').detach().insertAfter('.card-b .gallery');
+				$('.card-b .core > div').detach().insertAfter('.card-b .core .desc');
 			}
 		}
 	});

@@ -417,7 +417,6 @@ $(function() {
 		slideEasing: 'easeInOutQuad',
 		play: 10000,
 		pause: 2500,
-		autoHeight: true,
 		slidesLoaded: function() {
 			infoPosition();
 			var current = $('.custom-page-benefits .pagination li.current').index();
@@ -784,8 +783,18 @@ $(function() {
 				$('.custom-catalog .list li h3').on('click', function() {
 					$(this).parent().toggleClass('active');
 				});
+				$('.calculator-intro table td:nth-child(2), .calculator-intro table td:nth-child(3)').each(function() {
+					$(this).prepend('<strong>'+$(this).parents('table').find('th').eq($(this).index()).text()+'</strong>')
+				});
+				$('.calc-result table td:nth-child(2), .calc-result table td:nth-child(3), .calc-result table td:nth-child(4)').each(function() {
+					if ( $(this).find('input').length ) {
+						$(this).prepend('<strong>'+$(this).parents('table').find('th').eq($(this).index()).text()+'</strong>')
+					} else {
+						$(this).hide();
+					}
+				});
 			} else {
-				$('.menu-open, header .logo-m, .auto-type-nav-select, .multiply h6, .selection-i .more, .description-b .more, footer .go-up, .lk-nav .drop, .order-table table td label, .order-table table label, .card-b .tabs h6.drop').remove();
+				$('.menu-open, header .logo-m, .auto-type-nav-select, .multiply h6, .selection-i .more, .description-b .more, footer .go-up, .lk-nav .drop, .order-table table td label, .order-table table label, .card-b .tabs h6.drop, .calculator-intro table td strong, .calc-result table td strong').remove();
 				$('.selection-i').detach().insertAfter('.sign-i');
 				$('.selection-i .title').detach().insertAfter('.selection-i .nav');
 				$('.selection-i .clear').detach().insertBefore('.selection-i .controls button');

@@ -73,7 +73,7 @@ $(function() {
 				var max = 0;
 				for ( var j=1; j<=cols; j++ ) {
 					$(this).find('li:nth-of-type('+eval(i*cols+j)+')').each(function() {
-						var h = $(this).outerHeight(); 
+						var h = $(this).outerHeight();
 						max = h > max ? h : max;
 					});
 				}
@@ -399,7 +399,7 @@ $(function() {
 		$('.custom-page-benefits .pagination li').eq(eval($(this).parent().index())).find('a').trigger('click');
 	});
 
-	
+
 	function infoPosition() {
 		$('.custom-page-benefits .core .info').each(function() {
 			$(this).css({
@@ -449,7 +449,7 @@ $(function() {
 	$(function() {
 		var max = 0;
 		$('.custom-catalog .list li').each(function() {
-			var h = $(this).height(); 
+			var h = $(this).height();
 			max = h > max ? h : max;
 		});
 		$('.custom-catalog .list li').height(max);
@@ -506,7 +506,7 @@ $(function() {
 			var t = $(this).children('ul');
 			t.show();
 			$('.bg').width(0);
-			
+
 			lvl3 = t.outerHeight();
 			if ( lvl3 < lvl2 ) {
 				lvl3 = lvl2;
@@ -550,10 +550,10 @@ $(function() {
 				progress = 1;
 			}
 			t.find('.bg').css({
-				'top': -progress*bgDiff+'px' 
+				'top': -progress*bgDiff+'px'
 			});
 			t.find('.big').css({
-				'margin-top': -progress*bigDiff+'px' 
+				'margin-top': -progress*bigDiff+'px'
 			});
 		});
 		$(window).trigger('scroll');
@@ -616,7 +616,7 @@ $(function() {
 		t.each(function() {
 			$(this).find('p span').eq(0).show().addClass('active');
 		});
-		setInterval(function() {	
+		setInterval(function() {
 			i = i+1;
 			if ( i >= t.size() ) {
 				i = 0;
@@ -645,17 +645,17 @@ $(function() {
 		$(this).parents('.nav').siblings('[data-tab="'+$(this).attr('href')+'"]').show().siblings('[data-tab]').hide();
 		$(this).parent().addClass('active').siblings().removeClass('active');
 	}).filter(':first').click();
-	
+
 	var isMobile = false;
 	var justSwitched = false;
 	function detectDevice() {
 		var temp = isMobile;
 		if ( $(window).width() < 640 ) {
 			isMobile = true;
-			//$('meta[name="viewport"]').attr('content','width=320,user-scalable=yes'); 
+			//$('meta[name="viewport"]').attr('content','width=320,user-scalable=yes');
 		} else {
 			isMobile = false;
-			//$('meta[name="viewport"]').attr('content','width=1040,user-scalable=yes'); 
+			//$('meta[name="viewport"]').attr('content','width=1040,user-scalable=yes');
 		}
 		if ( temp == isMobile ) {
 			justSwitched = false;
@@ -805,5 +805,11 @@ $(function() {
 		}
 	});
 	$(window).trigger('resize');
-	
+	$('.wholesale-b .programs .brands').slick({
+		slidesToShow: 4,
+		slidesToScroll: 1,
+		infinite: true,
+		arrows: true,
+		draggable: true
+	});
 });
